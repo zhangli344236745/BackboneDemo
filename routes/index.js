@@ -2,9 +2,15 @@ var express = require('express');
 var router = express.Router();
 var models=require("../models/model.js");
 var User=models.User;
+var Comment=models.Comment;
 /* GET home page. */
 router.get('/', function(req, res) {
-  res.render('index', { title: 'Express' });
+  User.findOne(function(err,user){
+      var con=new Comment({title:"zffds",content:"content",author:user._id});
+      con.save();
+      res.render('index', { title: 'Express' });
+  });
+
 });
 
 router.post("/user",function(req,res){
@@ -25,6 +31,15 @@ router.get("/users",function(req,res){
        }
        res.send(users);
     });
+});
+
+router.get("/commtent/:id",function(req,res){
+    console.log(req.params.id);
+    //User.findOne(function(err,user){
+       Comment.find({author:req.params.id},function(err,comments){
+          res.send(comments);
+       });
+    //})
 });
 
 module.exports = router;
