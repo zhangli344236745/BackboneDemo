@@ -18,4 +18,13 @@ router.post("/user",function(req,res){
     });
 });
 
+router.get("/users",function(req,res){
+    User.find(function(err,users){
+       if(err){
+           res.send([]);
+       }
+       res.send(users);
+    });
+});
+
 module.exports = router;

@@ -3,7 +3,8 @@
  */
 define(["underscore","backbone","../models/usermodel"],function(_,Backbone,User){
     var UserCollection=Backbone.Collection.extend({
-        model:User
+        model:User,
+        url:"/users"
     });
     return UserCollection;
 });

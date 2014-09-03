@@ -10,6 +10,7 @@ require.config({
     }
 });
 
-require(["./views/userview"],function(UserView){
+require(["./views/userview","./views/userlistview"],function(UserView,UserListView){
     var userview=new UserView();
+    var userlistview=new UserListView();
 })
