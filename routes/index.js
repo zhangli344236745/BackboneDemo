@@ -42,4 +42,8 @@ router.get("/commtent/:id",function(req,res){
     //})
 });
 
+router.get("/bar",function(req,res){
+    res.render("bar")
+});
+
 module.exports = router;
